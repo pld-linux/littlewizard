@@ -1,5 +1,6 @@
 %define		rc		rc2
 Summary:	Development environment for children
+Summary(pl):	¦rodowiko programistyczne dla dzieci
 Name:		littlewizard
 Version:	1.0.0
 Release:	0.rc2.1
@@ -8,11 +9,16 @@ Group:		Development
 Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
 # Source0-md5:	a68d33d34bd01f28070358809642f7c8
 URL:		http://littlewizard.sourceforge.net/
-#uildRequires:	
+#BuildRequires: 
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Development environment for children. Program little wizard without using keybord, just use the drag and drop system
+Development environment for children. Program little wizard without
+using keybord, just use the drag and drop system.
+
+%description -l pl
+¦rodowisko programistyczne dla dzieci. Program ma³y czarodziej u¿ywa
+siê bez klawiatury, korzystaj±c z systemu "z³ap i upu¶æ".
 
 %prep
 %setup -q
