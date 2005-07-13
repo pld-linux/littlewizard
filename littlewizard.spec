@@ -5,12 +5,12 @@ Name:		littlewizard
 Version:	1.0.0
 Release:	0.%{_rc}.1
 License:	GPL v2
-Group:		Development
+Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}%{_rc}.tar.gz
 # Source0-md5:	a68d33d34bd01f28070358809642f7c8
 URL:		http://littlewizard.sourceforge.net/
-BuildRequires:	pkgconfig
 BuildRequires:	libxml2-devel
+BuildRequires:	pkgconfig
 Requires(post,postun): /sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
