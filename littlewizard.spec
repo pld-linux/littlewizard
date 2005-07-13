@@ -21,6 +21,30 @@ using keybord, just use the drag and drop system.
 ¦rodowisko programistyczne dla dzieci. Program ma³y czarodziej u¿ywa
 siê bez klawiatury, korzystaj±c z systemu "z³ap i upu¶æ".
 
+%package devel
+Summary:	Header file and libraries for littlewizard
+Summary(pl):	Pliki nag³ówkowe i biblioteki dla littlewizard
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+littlewizard header files and librarie.s
+
+%description devel -l pl
+Pliki nag³ówkowe i biblioteki dla littlewizard.
+
+%package static
+Summary:	Static libraries for littlewizard
+Summary(pl):	Statyczne biblioteki dla littlewizard
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description static
+littlewizard static libraries.
+
+%description static -l pl
+Biblioteki statyczne dla littlewizard.
+
 %prep
 %setup -q -n %{name}-%{version}%{_rc}
 
@@ -42,7 +66,16 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
-%{_includedir}/littlewizard
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
+# TODO: fix it
 %{_datadir}/*
-%{_libdir}/*
-#%{_mandir}/man8/%{name}.*
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}/littlewizard
+%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/lib*.so
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
