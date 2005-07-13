@@ -11,6 +11,7 @@ Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}%{_rc}.tar.gz
 URL:		http://littlewizard.sourceforge.net/
 BuildRequires:	pkgconfig
 BuildRequires:	libxml2-devel
+Requires(post,postun): /sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -61,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
