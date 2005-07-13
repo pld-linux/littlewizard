@@ -9,10 +9,9 @@ Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}%{_rc}.tar.gz
 # Source0-md5:	a68d33d34bd01f28070358809642f7c8
 URL:		http://littlewizard.sourceforge.net/
-BuildRequires:	gtk+2-devel
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libxml2-devel
 BuildRequires:	pkgconfig
-Requires(post,postun): /sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -20,26 +19,27 @@ Development environment for children. Program little wizard without
 using keybord, just use the drag and drop system.
 
 %description -l pl
-¦rodowisko programistyczne dla dzieci. Program ma³y czarodziej u¿ywa
-siê bez klawiatury, korzystaj±c z systemu "z³ap i upu¶æ".
+Little wizard ("ma³y czarodziej") to ¶rodowisko programistyczne dla
+dzieci. Programuje siê je bez klawiatury, korzystaj±c z systemu "z³ap
+i upu¶æ".
 
 %package devel
-Summary:	Header file and libraries for littlewizard
-Summary(pl):	Pliki nag³ówkowe i biblioteki dla littlewizard
+Summary:	Header files for littlewizard
+Summary(pl):	Pliki nag³ówkowe bibliotek littlewizard
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-littlewizard header files and librarie.s
+littlewizard header files.
 
 %description devel -l pl
-Pliki nag³ówkowe i biblioteki dla littlewizard.
+Pliki nag³ówkowe bibliotek littlewizard.
 
 %package static
 Summary:	Static libraries for littlewizard
 Summary(pl):	Statyczne biblioteki dla littlewizard
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 littlewizard static libraries.
@@ -64,8 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -77,9 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/littlewizard
-%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
+%{_includedir}/littlewizard
 
 %files static
 %defattr(644,root,root,755)
