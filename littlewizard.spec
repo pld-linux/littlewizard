@@ -41,7 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
-%{_includedir}/littlewizard/*
+%{_includedir}/littlewizard
 %{_datadir}/*
 %{_libdir}/*
 #%{_mandir}/man8/%{name}.*
