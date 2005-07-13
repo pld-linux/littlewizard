@@ -1,12 +1,12 @@
-%define		rc		rc2
+%define		_rc		rc2
 Summary:	Development environment for children
 Summary(pl):	¦rodowiko programistyczne dla dzieci
 Name:		littlewizard
-Version:	1.0.0rc2
-Release:	0.1
+Version:	1.0.0
+Release:	0.%{_rc}.1
 License:	GPL v2
 Group:		Development
-Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}%{_rc}.tar.gz
 # Source0-md5:	a68d33d34bd01f28070358809642f7c8
 URL:		http://littlewizard.sourceforge.net/
 #BuildRequires: 
@@ -21,7 +21,7 @@ using keybord, just use the drag and drop system.
 siê bez klawiatury, korzystaj±c z systemu "z³ap i upu¶æ".
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_rc}
 
 %build
 %configure
