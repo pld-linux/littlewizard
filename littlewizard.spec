@@ -9,7 +9,8 @@ Group:		Development
 Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}%{_rc}.tar.gz
 # Source0-md5:	a68d33d34bd01f28070358809642f7c8
 URL:		http://littlewizard.sourceforge.net/
-#BuildRequires: 
+BuildRequires:	pkgconfig
+BuildRequires:	libxml2-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
