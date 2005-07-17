@@ -63,19 +63,19 @@ rm -rf $RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}/* $RPM_BUILD_ROOT%{_pixmapsdir}
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_datadir}/locale/en_GB/LC_MESSAGES/%{name}.mo
-%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/%{name}.mo
 %{_pixmapsdir}/*.png
 %{_datadir}/%{name}
 
