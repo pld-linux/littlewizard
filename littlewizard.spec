@@ -61,6 +61,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}/* $RPM_BUILD_ROOT%{_pixmapsdir}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -72,8 +74,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-# TODO: fix it
-%{_datadir}/*
+%{_datadir}/locale/en_GB/LC_MESSAGES/%{name}.mo
+%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/%{name}.mo
+%{_pixmapsdir}/*.png
+%{_datadir}/%{name}
 
 %files devel
 %defattr(644,root,root,755)
