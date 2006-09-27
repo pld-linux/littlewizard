@@ -1,14 +1,16 @@
-%define		_rc		rc2
 Summary:	Development environment for children
 Summary(pl):	¦rodowiko programistyczne dla dzieci
 Name:		littlewizard
-Version:	1.0.0
-Release:	0.%{_rc}.1
+Version:	1.1.4
+Release:	1
 License:	GPL v2
 Group:		Development/Tools
-Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}%{_rc}.tar.gz
-# Source0-md5:	a68d33d34bd01f28070358809642f7c8
+Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
+# Source0-md5:	b3dad856d0931f4f6846bf8a523792f9
+Patch0:		%{name}-Makefile.patch
 URL:		http://littlewizard.sourceforge.net/
+BuildRequires:  autoconf
+BuildRequires:  automake
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libxml2-devel
 BuildRequires:	pkgconfig
@@ -48,9 +50,13 @@ littlewizard static libraries.
 Biblioteki statyczne dla littlewizard.
 
 %prep
-%setup -q -n %{name}-%{version}%{_rc}
+%setup -q
+%patch0 -p1
 
 %build
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure
 %{__make} \
 	CFLAGS="%{rpmcflags}"
@@ -73,10 +79,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog TODO
+%doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_pixmapsdir}/*.png
+%{_pixmapsdir}/*
 %{_datadir}/%{name}
 
 %files devel
