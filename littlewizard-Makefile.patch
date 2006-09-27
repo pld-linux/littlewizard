@@ -1,0 +1,23 @@
+--- littlewizard-1.1.4/Makefile.am~	2005-10-10 12:43:33.000000000 +0200
++++ littlewizard-1.1.4/Makefile.am	2006-09-27 21:36:31.000000000 +0200
+@@ -6,20 +6,11 @@
+ SUBDIRS = po liblanguage liblw include src pixmaps data
+ 
+ lwdocdir = ${prefix}/doc/littlewizard
+-lwdoc_DATA = \
+-	README\
+-	COPYING\
+-	AUTHORS\
+-	ChangeLog\
+-	INSTALL\
+-	NEWS\
+-	TODO
+ 
+ EXTRA_DIST = $(lwdoc_DATA)
+ 
+ 
+ gnomemenudir = $(datadir)/applications
+-gnomemenu_DATA = littlewizard.desktop
+ 
+ # Copy all the spec files. Of cource, only one is actually used.
+ dist-hook:
