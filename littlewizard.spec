@@ -11,8 +11,8 @@ Source1:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-pixmapsdir.patch
 URL:		http://littlewizard.sourceforge.net/
-BuildRequires:  autoconf
-BuildRequires:  automake
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libxml2-devel
 BuildRequires:	pkgconfig
