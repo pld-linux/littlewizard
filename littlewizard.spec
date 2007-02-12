@@ -1,5 +1,5 @@
 Summary:	Development environment for children
-Summary(pl):	¦rodowiko programistyczne dla dzieci
+Summary(pl.UTF-8):   Åšrodowiko programistyczne dla dzieci
 Name:		littlewizard
 Version:	1.1.4
 Release:	4
@@ -22,33 +22,33 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Development environment for children. Program little wizard without
 using keybord, just use the drag and drop system.
 
-%description -l pl
-Little wizard ("ma³y czarodziej") to ¶rodowisko programistyczne dla
-dzieci. Programuje siê je bez klawiatury, korzystaj±c z systemu "z³ap
-i upu¶æ".
+%description -l pl.UTF-8
+Little wizard ("maÅ‚y czarodziej") to Å›rodowisko programistyczne dla
+dzieci. Programuje siÄ™ je bez klawiatury, korzystajÄ…c z systemu "zÅ‚ap
+i upuÅ›Ä‡".
 
 %package devel
 Summary:	Header files for littlewizard
-Summary(pl):	Pliki nag³ówkowe bibliotek littlewizard
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe bibliotek littlewizard
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 littlewizard header files.
 
-%description devel -l pl
-Pliki nag³ówkowe bibliotek littlewizard.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe bibliotek littlewizard.
 
 %package static
 Summary:	Static libraries for littlewizard
-Summary(pl):	Statyczne biblioteki dla littlewizard
+Summary(pl.UTF-8):   Statyczne biblioteki dla littlewizard
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 littlewizard static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne dla littlewizard.
 
 %prep
