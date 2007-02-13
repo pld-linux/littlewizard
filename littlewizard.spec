@@ -1,5 +1,5 @@
 Summary:	Development environment for children
-Summary(pl.UTF-8):   Środowiko programistyczne dla dzieci
+Summary(pl.UTF-8):	Środowiko programistyczne dla dzieci
 Name:		littlewizard
 Version:	1.1.4
 Release:	4
@@ -29,7 +29,7 @@ i upuść".
 
 %package devel
 Summary:	Header files for littlewizard
-Summary(pl.UTF-8):   Pliki nagłówkowe bibliotek littlewizard
+Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek littlewizard
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -41,7 +41,7 @@ Pliki nagłówkowe bibliotek littlewizard.
 
 %package static
 Summary:	Static libraries for littlewizard
-Summary(pl.UTF-8):   Statyczne biblioteki dla littlewizard
+Summary(pl.UTF-8):	Statyczne biblioteki dla littlewizard
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
