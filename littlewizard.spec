@@ -1,15 +1,16 @@
 Summary:	Development environment for children
 Summary(pl.UTF-8):	Środowiko programistyczne dla dzieci
 Name:		littlewizard
-Version:	1.1.4
-Release:	4
-License:	GPL v2
+Version:	1.1.5
+Release:	1
+License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
-# Source0-md5:	b3dad856d0931f4f6846bf8a523792f9
-Source1:	%{name}.desktop
+# Source0-md5:	37993a3046142e604a3141bc68c51987
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-pixmapsdir.patch
+Patch2:		%{name}-desktop.patch
+Patch3:		%{name}-separatelibs.patch
 URL:		http://littlewizard.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -55,6 +56,8 @@ Biblioteki statyczne dla littlewizard.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 %{__aclocal}
@@ -71,7 +74,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install littlewizard.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
 
