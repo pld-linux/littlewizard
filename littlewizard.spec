@@ -1,16 +1,16 @@
+%define	_rc	rc1
 Summary:	Development environment for children
 Summary(pl.UTF-8):	Środowiko programistyczne dla dzieci
 Name:		littlewizard
-Version:	1.1.5
-Release:	1
+Version:	1.2.0
+Release:	0.%{_rc}.1
 License:	GPL v2+
 Group:		Development/Tools
-Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
-# Source0-md5:	37993a3046142e604a3141bc68c51987
+Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}%{_rc}.tar.gz
+# Source0-md5:	e815bdd7f32da5fdd1afd236693acee4
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-pixmapsdir.patch
 Patch2:		%{name}-desktop.patch
-Patch3:		%{name}-separatelibs.patch
 URL:		http://littlewizard.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -25,8 +25,8 @@ using keybord, just use the drag and drop system.
 
 %description -l pl.UTF-8
 Little wizard ("mały czarodziej") to środowisko programistyczne dla
-dzieci. Programuje się je bez klawiatury, korzystając z systemu "złap
-i upuść".
+dzieci. Programuje się w nim bez użycia klawiatury, korzystając z
+systemu "złap i upuść".
 
 %package devel
 Summary:	Header files for littlewizard
@@ -53,11 +53,10 @@ littlewizard static libraries.
 Biblioteki statyczne dla littlewizard.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_rc}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %{__aclocal}
@@ -85,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
+%doc AUTHORS COMPATIBILITY ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_pixmapsdir}/*
