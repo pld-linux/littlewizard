@@ -1,4 +1,4 @@
-%define	_rc	rc1
+%define	_rc	rc2
 Summary:	Development environment for children
 Summary(pl.UTF-8):	Środowiko programistyczne dla dzieci
 Name:		littlewizard
@@ -7,7 +7,7 @@ Release:	0.%{_rc}.1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}%{_rc}.tar.gz
-# Source0-md5:	e815bdd7f32da5fdd1afd236693acee4
+# Source0-md5:	1ace85e5cdd49cd2eb7c8b06405b44d0
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-pixmapsdir.patch
 Patch2:		%{name}-desktop.patch
