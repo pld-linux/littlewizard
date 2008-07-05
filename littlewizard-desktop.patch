@@ -1,14 +1,14 @@
---- littlewizard-1.1.5/littlewizard.desktop.in~	2006-09-06 23:01:18.000000000 +0200
-+++ littlewizard-1.1.5/littlewizard.desktop.in	2007-09-26 00:27:37.000000000 +0200
-@@ -19,9 +19,10 @@
+--- littlewizard-1.2.0rc1/littlewizard.desktop.in~	2007-12-16 01:14:34.000000000 +0100
++++ littlewizard-1.2.0rc1/littlewizard.desktop.in	2007-12-16 01:16:31.000000000 +0100
+@@ -23,9 +23,10 @@
  Comment[sk]=Vývojové prostredie pre deti
  
- Exec=lw
+ Exec=littlewizard
 -Icon=@PACKAGE_PIXMAPS_DIR@/littlewizard-icon.png
 +Icon=littlewizard-icon.png
  Terminal=false
  MultipleArgs=false
  Type=Application
- Categories=GTK;GNOME;Education;
+ Categories=GTK;GNOME;Education;Teaching;
  Encoding=UTF-8
 +# vi: encoding=utf-8
