@@ -1,20 +1,20 @@
 Summary:	Development environment for children
 Summary(pl.UTF-8):	Środowiko programistyczne dla dzieci
 Name:		littlewizard
-Version:	1.1.5
+Version:	1.2.0
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
-# Source0-md5:	37993a3046142e604a3141bc68c51987
+# Source0-md5:	a47967c5b54805bcd1564d3d462af86e
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-pixmapsdir.patch
 Patch2:		%{name}-desktop.patch
-Patch3:		%{name}-separatelibs.patch
 URL:		http://littlewizard.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	libselinux-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -25,8 +25,8 @@ using keybord, just use the drag and drop system.
 
 %description -l pl.UTF-8
 Little wizard ("mały czarodziej") to środowisko programistyczne dla
-dzieci. Programuje się je bez klawiatury, korzystając z systemu "złap
-i upuść".
+dzieci. Programuje się w nim bez użycia klawiatury, korzystając z
+systemu "złap i upuść".
 
 %package devel
 Summary:	Header files for littlewizard
@@ -57,7 +57,6 @@ Biblioteki statyczne dla littlewizard.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %{__aclocal}
@@ -75,17 +74,15 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 install littlewizard.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
-%find_lang %{name}
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README TODO
+%doc AUTHORS COMPATIBILITY ChangeLog README TODO
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_pixmapsdir}/*
