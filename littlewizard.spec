@@ -2,7 +2,7 @@ Summary:	Development environment for children
 Summary(pl.UTF-8):	Środowiko programistyczne dla dzieci
 Name:		littlewizard
 Version:	1.2.0
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
@@ -13,10 +13,14 @@ Patch2:		%{name}-desktop.patch
 URL:		http://littlewizard.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	libselinux-devel
-BuildRequires:	libxml2-devel
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	libtool
+BuildRequires:	libxml2-devel >= 2.4
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.311
+Requires(post,postun):	gtk+2
+Requires(post,postun):	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,42 +63,60 @@ Biblioteki statyczne dla littlewizard.
 %patch2 -p1
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install littlewizard.desktop $RPM_BUILD_ROOT%{_desktopdir}
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
+%post
+/sbin/ldconfig
+%update_icon_cache hicolor
+%update_mime_database
 
-%files
+%postun
+/sbin/ldconfig
+%update_icon_cache hicolor
+%update_mime_database
+
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS COMPATIBILITY ChangeLog README TODO
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_bindir}/littlewizard
+%attr(755,root,root) %{_bindir}/littlewizardtest
+%attr(755,root,root) %{_libdir}/liblanguage.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/liblanguage.so.0
+%attr(755,root,root) %{_libdir}/liblw.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/liblw.so.0
 %{_pixmapsdir}/*
-%{_desktopdir}/*.desktop
+%{_desktopdir}/littlewizard.desktop
 %{_datadir}/%{name}
+%{_datadir}/mime/packages/littlewizard.xml
+%{_iconsdir}/hicolor/*/*/*.png
+%{_iconsdir}/hicolor/*/*/*.svg
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/liblanguage.so
+%attr(755,root,root) %{_libdir}/liblw.so
+%{_libdir}/liblanguage.la
+%{_libdir}/liblw.la
 %{_includedir}/littlewizard
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/liblanguage.a
+%{_libdir}/liblw.a
