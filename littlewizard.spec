@@ -5,7 +5,7 @@ Version:	1.2.2
 Release:	0
 License:	GPL v2+
 Group:		Development/Tools
-Source0:	http://dl.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz
 # Source0-md5:	1a6f4405418c8b55b29de0ce5934d73f
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-pixmapsdir.patch
@@ -19,7 +19,8 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-Requires(post,postun):	gtk+2
+Requires(post,postun):	gtk-update-icon-cache
+Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
