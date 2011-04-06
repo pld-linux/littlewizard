@@ -2,7 +2,7 @@ Summary:	Development environment for children
 Summary(pl.UTF-8):	Środowiko programistyczne dla dzieci
 Name:		littlewizard
 Version:	1.2.2
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://downloads.sourceforge.net/littlewizard/%{name}-%{version}.tar.gz

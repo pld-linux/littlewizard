@@ -1,14 +1,15 @@
---- littlewizard-1.2.0rc1/littlewizard.desktop.in~	2007-12-16 01:14:34.000000000 +0100
-+++ littlewizard-1.2.0rc1/littlewizard.desktop.in	2007-12-16 01:16:31.000000000 +0100
-@@ -23,9 +23,10 @@
+--- littlewizard-1.2.2/littlewizard.desktop.in.wiget	2008-09-05 00:40:50.000000000 +0200
++++ littlewizard-1.2.2/littlewizard.desktop.in	2011-04-06 19:54:43.432581903 +0200
+@@ -27,10 +27,11 @@ Comment[ru]=Среда программ�
  Comment[sk]=Vývojové prostredie pre deti
  
  Exec=littlewizard
 -Icon=@PACKAGE_PIXMAPS_DIR@/littlewizard-icon.png
-+Icon=littlewizard-icon.png
++Icon=littlewizard-icon
  Terminal=false
  MultipleArgs=false
  Type=Application
  Categories=GTK;GNOME;Education;Teaching;
  Encoding=UTF-8
+ MimeType=application/x-littlewizard;
 +# vi: encoding=utf-8
