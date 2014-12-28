@@ -13,7 +13,7 @@ Patch2:		%{name}-desktop.patch
 URL:		http://littlewizard.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4
